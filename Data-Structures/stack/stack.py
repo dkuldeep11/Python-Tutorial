@@ -51,7 +51,7 @@ class Stack:
 		"""This is a display function
 		Prints the items list
 		"""
-		for idx in range(len(self.items)-1, 0, -1):
+		for idx in range(len(self.items)-1, -1, -1):
 			print self.items[idx]
 
 
