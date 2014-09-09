@@ -1,0 +1,16 @@
+import SLL
+
+link_list = SLL.LinkList()
+
+#isEmpty()
+print link_list.isEmpty()
+
+#add()
+link_list.add(30)
+link_list.add(25)
+link_list.add(35)
+
+link_list.display()
+
+
+
