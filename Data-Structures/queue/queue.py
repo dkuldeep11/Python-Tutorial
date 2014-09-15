@@ -22,7 +22,7 @@ class Queue:
 		input: item
 		Adds the item at the front in the items list
 		"""
-		self.items.insert(0, item)
+		self.items.append(item)
 
 	def dequeue(self):
 		"""This is dequeue function
