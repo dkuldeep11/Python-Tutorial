@@ -43,23 +43,21 @@ class AVLTree:
 			
 		if item < node.getData():
 			node.setLeft(self.insertHelper(node.getLeft(), item))
-			#n_l = node.getLeft().getHeight()
-			#n_r = node.getRight().getHeight() if node.getRight() else -1
-			#print "curr = ", node.show()
-			#print "bal = ", abs(n_l - n_r)
-			#if abs(n_l - n_r) == 2:
 			if abs(self.height(node.getLeft()) - self.height(node.getRight()) ) == 2:
-				node = self.rotateLeft(node)
+				if item > node.getLeft().getData():
+					node.setLeft(self.rotateRight(node.getLeft()))
+					node = self.rotateLeft(node)
+				else:
+					node = self.rotateLeft(node)
 		elif item > node.getData():
-			#node.show()
 			node.setRight(self.insertHelper(node.getRight(), item))
-            #print "curr = ", node.show()
-            #print "bal = ", abs(n_l - n_r)
 			if abs(self.height(node.getLeft()) - self.height(node.getRight()) ) == 2:
-				node = self.rotateRight(node)
+				if item < node.getRight().getData():
+					node.setRight(self.rotateLeft(node.getRight()))
+					node = self.rotateRight(node)
+				else:
+					node = self.rotateRight(node)
 
-		#l = node.getLeft().getHeight() if node.getLeft() else 0
-		#r = node.getRight().getHeight()	if node.getRight() else 0
 		node.setHeight(self.max(self.height(node.getLeft()), self.height(node.getRight())) + 1)	
 		return node
 		
@@ -270,7 +268,7 @@ class AVLTree:
 		x.setHeight(self.max(x_l, x_r) + 1)
 
 		#update W height	
-		w.setHeight(self.max(w.getLeft().getHeight(), x.getHeight()) + 1)
+		w.setHeight(self.max(self.height(w.getLeft()), self.height(x)) + 1)
 		return w	
 
 	'''

@@ -46,3 +46,12 @@ print bt1.treeHeight()
 print "inorder"
 bt1.traverse(2) #1-preorder, 2-inorder, 3-postorder
 
+bt1.insert(23)
+print "inorder"
+bt1.traverse(2) #1-preorder, 2-inorder, 3-postorder
+bt1.insert(15)
+print "inorder"
+bt1.traverse(2) #1-preorder, 2-inorder, 3-postorder
+bt1.insert(13)
+print "inorder"
+bt1.traverse(2) #1-preorder, 2-inorder, 3-postorder
